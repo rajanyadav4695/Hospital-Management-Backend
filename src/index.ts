@@ -1,4 +1,5 @@
 import express from "express";
+import 'reflect-metadata'
 import cors from "cors";
 import { AppDataSource } from "./Dbconfig/dbconnect";
 const app = express();

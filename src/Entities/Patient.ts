@@ -24,6 +24,9 @@ export class Patient extends BaseEntity {
   @Column({ name: "contact", type: "varchar", length: 10, default: null })
   contact: any;
 
+  @Column({ name: "address", type: "text", default: null })
+    address: any
+
   @Column({
     name: "password",
     type: "varchar",

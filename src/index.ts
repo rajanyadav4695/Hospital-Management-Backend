@@ -3,11 +3,13 @@ import "reflect-metadata";
 import dotenv from "dotenv";
 import cors from "cors";
 import { AppDataSource } from "./Dbconfig/dbconnect";
+import fileUpload from 'express-fileupload'
 import { route } from "./Route/router";
 dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(fileUpload())
 
 AppDataSource.initialize()
   .then(() => {

@@ -5,7 +5,8 @@ import { ForgetPassswordController } from '../Controller/Common/forgetPassswordC
 import { resetPassswordController } from '../Controller/Common/resetPasswordController';
 import { verifyToken } from '../Middleware/Verifytoken';
 import { addDepartmentController, getDepartmentController } from '../Controller/AdminController/DepartmentController';
-import { getDoctorBydepartmentIdController } from '../Controller/DoctorController/DepartmentCpntroller';
+import { getDoctorBydepartmentIdController } from '../Controller/DoctorController/DepartmentController';
+import {  addapController, GetaddapByPatientController } from '../Controller/PatientController/bookAppointmentController';
 export const route=express.Router()
 
 //common router
@@ -22,3 +23,5 @@ route.get('/admin-get-department',verifyToken, getDepartmentController);
 route.get('/get-doctor-by-departmentId',verifyToken, getDoctorBydepartmentIdController);
 
 //patient route
+route.post('/doctor-appointment-book',verifyToken, addapController);
+route.get('/get-appointment-by-patient',verifyToken, GetaddapByPatientController); 

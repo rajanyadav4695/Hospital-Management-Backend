@@ -6,7 +6,7 @@ export const userRegisterController=async(req:any,res:any)=>{
     try {
         const dataToSave = req.body;
         let {profile}=req.files;
-        const pathToSaveFile=path.join(__dirname, '../../uploads/')
+        const pathToSaveFile=path.join(__dirname, '../../Uploads/')
         const profileName=uploadFileHelper(profile,pathToSaveFile,res)
         const finalData:any={...dataToSave,profile:profileName}
         const TblName:any=await returnUserType(dataToSave?.userType)

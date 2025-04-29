@@ -25,6 +25,7 @@ route.get('/get-appointment-by-admin',verifyToken, getAppByAdmin);
 //doctor route
 route.get('/get-doctor-by-departmentId',verifyToken, getDoctorBydepartmentIdController);
 route.get('/get-appointment-by-doctorId',verifyToken, getAppoinmentByDoctor);
+route.get('/doctor-get-department', getDepartmentController);
 
 
 //patient route

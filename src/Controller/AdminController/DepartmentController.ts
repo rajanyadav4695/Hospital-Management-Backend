@@ -24,3 +24,43 @@ try{
   return createResponse(res, 500, "Internal server error", [], false, true)
 }
 }
+
+//delete department
+export const deleteDepartmentController = async (req: any, res: any) => {
+  const { id } = req.params;
+
+  try {
+    const department = await Department.findOne({ where: { id } });
+
+    if (!department) {
+      return createResponse(res, 404, "Department not found", [], false, true);
+    }
+
+    await Department.remove(department);
+
+    return createResponse(res, 200, "Department deleted successfully", [], true, false);
+  } catch (err: any) {
+    return createResponse(res, 500, "Internal server error", [], false, true);
+  }
+};
+
+// Update Department
+export const updateDepartmentController = async (req: any, res: any) => {
+  const { id } = req.params;
+  const { name }: any = req.body;
+
+  try {
+    const department = await Department.findOne({ where: { id } });
+
+    if (!department) {
+      return createResponse(res, 404, "Department not found", [], false, true);
+    }
+
+    department.name = name;
+    const updated = await Department.save(department);
+
+    return createResponse(res, 200, "Department updated successfully", updated, true, false);
+  } catch (err: any) {
+    return createResponse(res, 500, "Internal server error", [], false, true);
+  }
+};
